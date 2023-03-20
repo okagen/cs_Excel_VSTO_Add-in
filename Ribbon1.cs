@@ -16,7 +16,9 @@ namespace CS_Excel_VSTO_Add_in
 
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
-
+            label1.Label = "Globals.ThisAddIn.Application.UserName [" + Globals.ThisAddIn.Application.UserName + " ]";
+            label2.Label = "環境変数 USERNAME [ " + Environment.GetEnvironmentVariable("username") + " ]";
+            label3.Label = "環境変数 USERDOMAIN [ " + Environment.GetEnvironmentVariable("USERDOMAIN") + " ]";
         }
 
         private void button_FromTheLeft_Click(object sender, RibbonControlEventArgs e)
