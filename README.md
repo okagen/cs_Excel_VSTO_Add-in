@@ -6,3 +6,4 @@
     - Initialize UserControl and CustomTaskPane in the ThisAddIn_Startup method in ThisAddIn.cs, and display them within the button_Click method in Ribbon.cs.
 3. Switch the Ribbon based on a string set in a specific cell on the Excel active sheet.
     - To toggle the ribbon, I defined a cell address and a specific string in the App.conig file.
+4. Create a common class for manipulating sheets.

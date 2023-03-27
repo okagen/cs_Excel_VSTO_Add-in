@@ -7,6 +7,7 @@ using System.Text;
 //CustomTaskPaneを利用するために追加
 using Microsoft.Office.Tools;
 
+
 namespace CS_Excel_VSTO_Add_in
 {
     public partial class Ribbon1
@@ -38,6 +39,7 @@ namespace CS_Excel_VSTO_Add_in
                     g_TP.DockPosition = Microsoft.Office.Core.MsoCTPDockPosition.msoCTPDockPositionLeft;
                     g_TP.Visible = true;
                 }
+
             }
             else
             {

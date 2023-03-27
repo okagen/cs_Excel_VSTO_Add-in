@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <!-- シートタイプ セルのアドレス -->
+    <add key="col_sheet_type" value="1" />
+    <add key="row_sheet_type" value="1" />
+
+    <!-- シートタイプ 鑑-->
+    <add key="shType_Cover_01" value="C-01"/>
+
+    <!-- シートタイプ 明細-->
+    <add key="shType_Detail_01" value="D-01"/>
+
+
+  </appSettings>  
+</configuration>
