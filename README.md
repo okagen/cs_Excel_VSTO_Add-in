@@ -7,3 +7,4 @@
 3. Switch the Ribbon based on a string set in a specific cell on the Excel active sheet.
     - To toggle the ribbon, I defined a cell address and a specific string in the App.conig file.
 4. Create a common class for manipulating sheets.
+5. Improved the readability of the ComSheet class.

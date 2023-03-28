@@ -43,14 +43,14 @@ namespace CS_Excel_VSTO_Add_in
         private void OnSheetActivated(object sh)
         {
 
-            ComSheet csh = new ComSheet();
-            csh.InitSheet(sh);
+            ComSheet comSh = new ComSheet();
+            comSh.InitSheet(sh);
 
             // リボンのGroup3の表示を切り替える
-            Globals.Ribbons.Ribbon1.group3.Visible = csh.IsSummarySheet;
+            Globals.Ribbons.Ribbon1.group3.Visible = comSh.IsSummarySheet;
 
             // リボンのGroup4の表示を切り替える
-            Globals.Ribbons.Ribbon1.group4.Visible = csh.IsDetailSheet;
+            Globals.Ribbons.Ribbon1.group4.Visible = comSh.IsDetailSheet;
 
         }
 
