@@ -36,6 +36,7 @@ namespace CS_Excel_VSTO_Add_in
                 this.IsSummarySheet = _sheetKind == ConfigurationManager.AppSettings["key_SummarySheet"];
                 this.IsDetailSheet = _sheetKind == ConfigurationManager.AppSettings["key_DetailSheet"];
             }
+            setMenu();
         }
 
         protected virtual void Dispose(bool disposing)
@@ -63,6 +64,19 @@ namespace CS_Excel_VSTO_Add_in
             Dispose(false);
         }
 
+        private void setMenu()
+        {
+            // リボンのGroup2の表示を切り替える
+            Globals.Ribbons.Ribbon1.group2.Visible = IsDetailSheet;
+
+            // リボンのGroup3の表示を切り替える
+            Globals.Ribbons.Ribbon1.group3.Visible = IsSummarySheet;
+
+            // リボンのGroup4の表示を切り替える
+            Globals.Ribbons.Ribbon1.group4.Visible = IsDetailSheet;
+        }
+
+
         /// <summary>
         /// Set user domain on the active sheet.
         /// </summary>
@@ -81,7 +95,7 @@ namespace CS_Excel_VSTO_Add_in
         /// <returns></returns>
         private bool GetSheetTypeStringFromCell()
         {
-            string rowSheetTypeString = ConfigurationManager.AppSettings["row_SheetTypeString"];
+            string rowSheetTypeString = ConfigurationManager.AppSettings["range_SheetTypeString"];
             string headerSheetTypeString = ConfigurationManager.AppSettings["header_SheetTypeString"];
 
             if (!string.IsNullOrEmpty(rowSheetTypeString) && !string.IsNullOrEmpty(headerSheetTypeString))

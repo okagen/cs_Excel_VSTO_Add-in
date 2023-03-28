@@ -29,6 +29,9 @@ namespace CS_Excel_VSTO_Add_in
             g_UserControl1 = new UserControl1();
             g_TaskPane = Globals.ThisAddIn.CustomTaskPanes.Add(g_UserControl1, "My Task Pane");
 
+            // Excel ファイルが開かれたときに呼び出される
+            this.Application.WorkbookActivate += new Excel.AppEvents_WorkbookActivateEventHandler(Application_WorkbookActivate);
+
             // シートが切り替わったときのイベントハンドラーを設定
             ((Excel.AppEvents_Event)this.Application).SheetActivate += new Excel.AppEvents_SheetActivateEventHandler(OnSheetActivated);
 
@@ -40,18 +43,16 @@ namespace CS_Excel_VSTO_Add_in
             ((Excel.AppEvents_Event)this.Application).SheetActivate -= new Excel.AppEvents_SheetActivateEventHandler(OnSheetActivated);
         }
 
+        private void Application_WorkbookActivate(Excel.Workbook workbook)
+        {
+            ComSheet comSh = new ComSheet();
+            comSh.InitSheet(workbook.ActiveSheet);
+        }
+
         private void OnSheetActivated(object sh)
         {
-
             ComSheet comSh = new ComSheet();
             comSh.InitSheet(sh);
-
-            // リボンのGroup3の表示を切り替える
-            Globals.Ribbons.Ribbon1.group3.Visible = comSh.IsSummarySheet;
-
-            // リボンのGroup4の表示を切り替える
-            Globals.Ribbons.Ribbon1.group4.Visible = comSh.IsDetailSheet;
-
         }
 
         #region VSTO で生成されたコード
@@ -64,6 +65,7 @@ namespace CS_Excel_VSTO_Add_in
         {
             this.Startup += new System.EventHandler(ThisAddIn_Startup);
             this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
+
         }
         
         #endregion

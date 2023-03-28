@@ -8,3 +8,6 @@
     - To toggle the ribbon, I defined a cell address and a specific string in the App.conig file.
 4. Create a common class for manipulating sheets.
 5. Improved the readability of the ComSheet class.
+6. Add combobox and button controls on UserControl, then add some lines when the button is clicked. 
+   - Adds new rows to the active worksheet by copying rows from the range above and inserting them below the current cell.
+   - Adds the number of rows the user has selected in the combo box.
